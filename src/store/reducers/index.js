@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { SELECT_CELL } from "../actions/moves";
+import { RESET_GAME, SELECT_CELL } from "../actions/moves";
 
 export const createBoard = (i) =>
   Array(i)
@@ -16,6 +16,9 @@ export const board = (state = createBoard(3), action) => {
       newBoard[action.row][action.col] = action.currentPlayer
       return newBoard
     }
+    case RESET_GAME: {
+      return createBoard(3)
+    }
     default: {
       return state
     }
@@ -29,6 +32,9 @@ export const game = (state = { currentPlayer: 'X', winner: null }, action) => {
         ...state,
         currentPlayer: state.currentPlayer === 'X' ? 'O' : 'X'
       }
+    }
+    case RESET_GAME: {
+      return { currentPlayer: 'X', winner: null }
     }
     default: {
       return state

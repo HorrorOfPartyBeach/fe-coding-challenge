@@ -1,0 +1,15 @@
+.board-cell__button {
+    background-color: white;
+    padding: 0px;
+    margin: 2px;
+    display: block;
+    border: none;
+    height: 170px;
+    width: 170px;
+    font-size: 5rem;
+  }
+  
+  .board-cell__button:focus {
+    background-color: #095872;
+    color: white;
+  }
